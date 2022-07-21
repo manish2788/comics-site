@@ -1,6 +1,9 @@
 import React from "react";
 
 class Content extends React.Component {
+  clearFilters() {
+    this.props.callback([],[]);
+  }
   render() {
     return  <section className="cs-comics-listContainer cs-global-padding">
               <header>
@@ -12,7 +15,7 @@ class Content extends React.Component {
                      }) : ''
                   }
                 </h4>
-                <button>Clear all filters</button>
+                <button onClick={this.clearFilters.bind(this)}>Clear all filters</button>
               </header>
               <ul className="cs-comics-list">
               {
@@ -21,7 +24,7 @@ class Content extends React.Component {
                             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}/>
                             <div className="cs-comics-listTitle">{comic.title}</div>
                           </li>
-                }) : <li>Loading..</li>
+                }) : <li>No Data Found!!</li>
               }
               </ul>
             </section> ;

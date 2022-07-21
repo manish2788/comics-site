@@ -47,10 +47,10 @@ class App extends React.Component {
       <div >
         <header>
           <NavMenu />
-          <Carousel value={this.state.characterData} callback={this.contentUpdateCallback.bind(this)}/>
+          <Carousel value={this.state.characterData} selectedCharacter={this.state.selectedCharacters} callback={this.contentUpdateCallback.bind(this)}/>
         </header>
         <main>
-          <Content value={this.state.comicsData} selectedCharacters={this.state.selectedCharacters}/>
+          <Content value={this.state.comicsData} selectedCharacters={this.state.selectedCharacters} callback={this.contentUpdateCallback.bind(this)}/>
         </main>
       </div>
     );
